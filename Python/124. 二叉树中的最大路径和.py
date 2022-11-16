@@ -26,6 +26,24 @@ class Solution:
             else:
                 return 0,0
         return solve(root)[1]
+    
+    def maxPathSum1(self, root: Optional[TreeNode]) -> int:
+        ans=root.val
+        def dfs(root):
+            nonlocal ans
+            if root:
+                lval=dfs(root.left)
+                rval=dfs(root.right)
+                maxval=max(lval+root.val,rval+root.val,root.val)
+                ans=max(maxval,ans,root.val+lval+rval)
+                if maxval<0:
+                    return 0
+                return maxval
+            else:
+                return 0
+        dfs(root)
+        return ans
+
 
     
     def layerCreateTree(self,nums:List[int])->TreeNode:

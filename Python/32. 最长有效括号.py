@@ -33,7 +33,34 @@ class Solution:
             if dp[i]>ans:ans=dp[i]
         #print(dp)
         return ans
-                    
+        
+    def longestValidParentheses1(self, s: str) -> int:
+        dp=[0]*len(s)
+        ans=0
+        for i in range(len(s)):
+            if s[i]=='(':
+                continue
+            elif s[i]==')':
+                if i-1>=0:
+                    if s[i-1]=='(':
+                        if i-2>=0:
+                            dp[i]=dp[i-2]+2
+                        else:
+                            dp[i]=2
+                    elif s[i-1]==')':
+                        if i-dp[i-1]-1>=0:
+                            if s[i-dp[i-1]-1]=='(':
+                                if i-dp[i-1]-2>=0:
+                                    dp[i]=dp[i-1]+2+dp[i-dp[i-1]-2]
+                                else:
+                                    dp[i]=dp[i-1]+2
+                        else:
+                            dp[i]=0
+                else:
+                    dp[i]=0
+        
+            ans=max(ans,dp[i])
+        return ans
 sol=Solution()
 
 s1 = ")()())"

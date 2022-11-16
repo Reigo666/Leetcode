@@ -35,6 +35,20 @@ class Solution:
                 minpos=i
         return False if minpos else True
 
+    def canJump2(self, nums: List[int]) -> bool:
+        l=0
+        r=l+nums[l]
+        if len(nums)==1:
+            return True
+        while l<len(nums) and r<len(nums)-1:
+            nr=-1
+            for i in range(l,r+1):
+                nr=max(nr,i+nums[i])
+            if nr<=r:
+                return False
+            l=r+1
+            r=nr
+        return True
 sol=Solution()
 nums = [2,3,1,1,4]
 nums1 = [3,2,1,0,4]
