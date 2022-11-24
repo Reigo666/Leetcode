@@ -6,7 +6,7 @@ import numpy as np
 #赢 平 输 赔率
 def solve(winodds,tieodds,loseodds):
     #总投入钱数
-    all_input=100
+    all_input=1000
 
     #赢 平 输 预期概率
     winprob=0.8
@@ -52,7 +52,7 @@ def solve(winodds,tieodds,loseodds):
 
 
 #赢 平 输 赔率
-solve(1.33,4.65,5.8)
+solve(1.24,4.65,8.5)
 
 
 
