@@ -1,3 +1,6 @@
+#AC自动机 用于多种匹配问题
+#相对于原版增加了回调函数以记录匹配的(b,e,word)
+
 from collections import deque
 from typing import List
 

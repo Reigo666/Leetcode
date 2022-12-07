@@ -1,5 +1,4 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+#用dfa进行最大前向匹配算法
 
 import ac_Tree_forMatch as ac_tree
 import record_log as reclog

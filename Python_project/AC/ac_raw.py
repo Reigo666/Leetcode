@@ -1,3 +1,7 @@
+#AC自动机 原版
+#根据words创建ac树
+#根据输入的txt进行多模式匹配
+
 from collections import deque
 from typing import List
 
