@@ -14,3 +14,19 @@ class Solution:
         if ans==len(nums)+1:
             return 0
         return ans
+    
+    def minSubArrayLen1(self, target: int, nums: List[int]) -> int:
+        l=0
+        r=0
+        sum1=0
+        ans=len(nums)+1
+        while r<len(nums):
+            sum1+=nums[r]
+            r+=1
+            while sum1>=target:
+                ans=min(ans,r-l)
+                sum1-=nums[l]
+                l+=1
+        if ans==len(nums)+1:
+            ans=0
+        return ans
