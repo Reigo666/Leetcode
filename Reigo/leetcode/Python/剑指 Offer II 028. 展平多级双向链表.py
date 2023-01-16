@@ -39,3 +39,23 @@ class Solution:
             return pre
         solve(head)
         return head
+    
+
+    def flatten1(self, head: 'Node') -> 'Node':
+        if not head:
+            return None
+        nodelist=[]
+        def dfs(root):
+            if root:
+                nodelist.append(root)
+                dfs(root.child)
+                dfs(root.next)
+        dfs(head)
+        nodelist[0].prev=None
+        nodelist[-1].next=None
+        for i in range(len(nodelist)-1):
+            nodelist[i].next=nodelist[i+1]
+            nodelist[i+1].prev=nodelist[i]
+            nodelist[i].child=None
+        nodelist[-1].child=None
+        return head

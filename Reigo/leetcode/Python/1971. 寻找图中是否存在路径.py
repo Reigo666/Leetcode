@@ -19,3 +19,19 @@ class Solution:
             
             return False
         return dfs(source)
+
+    # 并查集
+    def validPath1(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+        fa=[0]*n
+        for i in range(len(fa)):
+            fa[i]=i
+        
+        def find(x):
+            if fa[x]!=x:
+                fa[x]=find(fa[x])
+            return fa[x]
+        for e in edges:
+            s,t=e
+            fa[find(s)]=find(t)
+
+        return find(source)==find(destination)

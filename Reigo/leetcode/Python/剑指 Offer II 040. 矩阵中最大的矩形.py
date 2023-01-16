@@ -25,3 +25,31 @@ class Solution:
                     ans=max(ans,height*(j-k+1))
         
         return ans
+    
+    def maximalRectangle1(self, matrix: List[str]) -> int:
+        def solve(heights):
+            heights=[0]+heights+[0]
+            stack=[]
+            ans=0
+            for i,h in enumerate(heights):
+                while stack and heights[stack[-1]]>h:
+                    idx=stack.pop()
+                    ans=max(ans,(i-stack[-1]-1)*heights[idx])
+                stack.append(i)
+            
+            return ans
+        
+        if not matrix:
+            return 0
+        
+        cur=[int(x) for x in list(matrix[0])]
+        ans=0
+        ans=max(ans,solve(cur))
+        for i in range(1,len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix[i][j]=='0':
+                    cur[j]=0
+                else:
+                    cur[j]+=1
+            ans=max(ans,solve(cur))
+        return ans

@@ -27,4 +27,22 @@ class Solution:
             if not check(words[i-1],words[i]):
                 return False
         return True
-        
+    
+    def isAlienSorted1(self, words: List[str], order: str) -> bool:
+        dict={}
+        tmp=0
+
+        for l in order:
+            dict[l]=chr(ord('a')+tmp)
+            tmp+=1
+
+        pre=''
+        for i in range(len(words)):
+            newword=''
+            for j in range(len(words[i])):
+                newword+=dict[words[i][j]]
+            words[i]=newword
+            if words[i]<pre:
+                return False
+            pre=words[i]
+        return True
