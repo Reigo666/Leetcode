@@ -112,6 +112,7 @@ class Aho_Corasick_automaton:
             
 if __name__=="__main__":
     ac=Aho_Corasick_automaton()
+    '''
     #测试样例1
     #对应图在下面链接
     #https://blog.csdn.net/kilig_CSM/article/details/119341634?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1-119341634-blog-120368878.pc_relevant_landingrelevant&spm=1001.2101.3001.4242.2&utm_relevant_index=4
@@ -127,6 +128,14 @@ if __name__=="__main__":
     parsetext21='aaabaa'
     ac.create(words2)
     print(ac.parseText(parsetext21))#{a,aa,a,aaa,aa,a,ba,a,aa,a}
+
+    '''
+    
+    #测试样例3
+    words3=['abcde','abc','bcd','cde']
+    parsetext31='abcde!abc!'
+    ac.create(words3)
+    print(ac.parseText(parsetext31))#{a,aa,a,aaa,aa,a,ba,a,aa,a}
 
 
 

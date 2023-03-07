@@ -106,7 +106,7 @@ class Aho_Corasick_automaton:
             else:
                 node=node.next[l]
                 #如果node有information 即匹配成功
-                if node.isEnd:
+                if node.information:
                     ret+=node.information
                     
                     #将匹配到的所有模式 以三元组(start,end,value)写入rst

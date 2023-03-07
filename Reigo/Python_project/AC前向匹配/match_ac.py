@@ -75,7 +75,7 @@ class ac_match_t():
     #   0 -> 前向最大化优先匹配(max_match)
     #   1 -> 全匹配(is_all)
     # }
-    def do_match(self, message,__SELECT_MODE__=0):
+    def do_match(self, message,__SELECT_MODE__=1):
         ac=self.ac
         rst = [(-1,-1,None)]
         def cb(b, e, v):
@@ -181,8 +181,9 @@ if __name__ == '__main__':
     match = ac_match_t()
     match.dict_add('abcde', '12345')
     match.dict_add('abc', '123')
-    match.dict_add('cde', '345')
     match.dict_add('bcd', '234')
+    match.dict_add('cde', '345')
+    
 
     match.createAcTree()
     txt = "hello!abcde!abc!"
@@ -197,7 +198,7 @@ if __name__ == '__main__':
     #match.newParsedTriples=match.do_complete(txt,match.newParsedTriples)
 
     #对新的三元组中的词进行替换
-    match.do_filter(txt)
+    #match.do_filter(txt)
     
 
     #testcase2
